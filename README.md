@@ -1,2 +1,2 @@
-# PyView
+# Trufle
 some python GUI library
