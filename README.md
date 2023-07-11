@@ -1,2 +1,3 @@
 # Trufle
-some python GUI library
+# Beta Buggy Release.
+Under Construction!
