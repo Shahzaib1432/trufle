@@ -1,4 +1,11 @@
 # Trufle
-# Buggy Right now
-Under Construction!
-Huge BugFix coming soon...
+# Python Graphics Library
+
+Heres The Documentation!
+
+# Importing
+import trufle as tl
+
+# MainWindow
+window = tl.Window()
+
