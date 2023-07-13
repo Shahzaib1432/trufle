@@ -1,7 +1,9 @@
 from trufle import *
-window = Window()
+window = Window('Hello')
 
-cb = CheckBox(window)
-cb.place(100,100)
+frame = Frame(window)
+
+button = Button(frame)
+button.place(200,100)
 
 window.run()
