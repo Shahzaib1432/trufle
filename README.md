@@ -1,6 +1,8 @@
 # Trufle Documentation
 # Importing
+```python
 import trufle as tl
+```
 
 # MainWindow
 window = tl.Window()
