@@ -1,12 +1,12 @@
 # Trufle Documentation
 # Importing
 ```python
-import trufle as tl
+import trufle
 ```
 
 # MainWindow
 ```python
-window = tl.Window(title, width, height, x, y)
+window = trufle.Window(title, width, height, x, y)
 ```
 All of these parameters are optional.
 
@@ -36,3 +36,11 @@ To stop the window:
 ```python
 window.close()
 ```
+
+To change the icon:
+```python
+window.icon(path_to_icon)
+```
+Supported file types are .png .ico .svg
+
+# This documentation isnt finished yet.
