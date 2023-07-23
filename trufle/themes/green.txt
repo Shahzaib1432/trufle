@@ -1,0 +1,22 @@
+window::background=#1e1e1e
+
+button::text_color         = #FFFFFF
+button::button_color       = #3FAD44
+button::hover_color        = #399c3d
+button::pressed_color      = #328a36
+button::width              = 130
+button::height             = 40
+button::border_width       = 0
+button::border_color       = #222222
+button::border_hover_color = #000000
+button::corner_radius      = 5
+button::font               = HoloLens MDL2 Assets
+button::font_size          = 10
+
+canvas::width              = 400
+canvas::height             = 300
+canvas::canvas_color       = #1e1e1e
+canvas::border_width       = 2
+canvas::border_color       = #ffffff
+canvas::corner_radius      = 5
+

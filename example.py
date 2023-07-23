@@ -1,7 +1,6 @@
-import trufle
+from trufle import Window, Label, Button, Animation, AnimationGroup
+window = Window()
 
-window = trufle.Window(title='Hello')
-window.size(800,500, 300, 400)
-
+button1 = Button(window, can_hover=False, text_color='white', x=100,y=100)
 
 window.run()

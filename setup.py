@@ -28,5 +28,6 @@ setup(
         'sys',
         'typing',
         'pathlib',
+        'functools'
     ]
 )
