@@ -43,4 +43,12 @@ window.icon(path_to_icon)
 ```
 Supported file types are .png .ico .svg
 
-# This documentation isnt finished yet.
+# Full documentation is coming soon...
+
+# Abilities and Advantages
+• Supports gradients. Allowing for easier and much, Much better styling
+• Supports animations. 
+• Supports a ton of widgets. 
+• Supports Images.
+• Much, Much Faster!
+• Predefined Custom windows. One example is the HighWindow. Its as similar as you can get to a normal window, However it allows extreme customization and has themes like (Sleek, Sleek and modern), (Realistic, looks super similar to the an normal window)
