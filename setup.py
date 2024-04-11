@@ -20,5 +20,5 @@ setup(
         'Programming Language :: Python :: 3.10',
     ],
     packages=['trufle'],
-    install_requires=['PyQt5']
+    install_requires=['PyQt5', 'keyboard']
 )
