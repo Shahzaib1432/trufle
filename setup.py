@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='trufle',
-    version='1.0.0',
+    version='1.1.0',
     author='Muhammad Ahmad',
     description='A Python GUI framework',
     long_description=open('README.md').read(),

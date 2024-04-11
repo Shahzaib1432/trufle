@@ -17,6 +17,8 @@ class ButtonGroup:
                  frame_border_width=0,
                  frame_border_color='#000000',
                  group_padding=5,
+                 x=None,
+                 y=None,
                  command = lambda:... ):
         self._frame = Frame(master, corner_radius=frame_corner_radius, frame_color=frame_color, height=height, width=width, border_width=frame_border_width, border_color=frame_border_color)
 
@@ -42,6 +44,7 @@ class ButtonGroup:
             self.addValue(value)
         self._globalValue = Empty
 
+        if x and y: self.place(x,y)
 
     def place(self, x, y):
         self._frame.place(x, y)

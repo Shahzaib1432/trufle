@@ -38,8 +38,8 @@ class DataGrid:
                  vertical_headers_border_color='#1e1e1e',
                  vertical_headers_padding = 1,
                  vertical_headers_padding_color='#1e1e1e',
-                 vertical_headers_corner_radius = 0
-                 ):
+                 vertical_headers_corner_radius = 0,
+                 x=None,y=None):
         horizontal_headers_corner_radius = self._bwCheck(horizontal_headers_corner_radius)
         vertical_headers_corner_radius = self._bwCheck(vertical_headers_corner_radius)
         data_grid_corner_radius = self._bwCheck(data_grid_corner_radius)
@@ -175,6 +175,8 @@ class DataGrid:
         self._t.setCornerButtonEnabled(True)
 
         self._t.hide()
+
+        if x and y: self.place(x,y)
 
     def place(self, x,y):
         self._t.move(x,y)
@@ -454,3 +456,7 @@ class DataGrid:
         if leave_pressed is not None:  self._t.mouseReleaseEvent  = leave_pressed
         if pressed_motion is not None: self._t.mouseMoveEvent     = pressed_motion
         if scroll         is not None: self._t.wheelEvent         = scroll
+
+    def get_selected_item(self):
+        selected_items = self._t.selectedItems()
+        return (selected.text for selected in selected_items)

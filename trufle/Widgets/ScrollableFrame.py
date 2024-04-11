@@ -85,7 +85,31 @@ class ScrollableFrame:
         if scroll         is not None: self._frame.wheelEvent         = scroll
     def info_x(self): return self._frame.info_x()
     def info_y(self): return self._frame.info_y()
-    def config(self, attribute_name, new_value): setattr(self, f'attributes_{attribute_name}', new_value); self.reload()
+    def config(self, attribute_name, new_value):
+        match attribute_name:
+            case 'width':                   self.attributes_width                   = new_value
+            case 'height':                  self.attributes_height                  = new_value
+            case 'scrollbar_width':         self.attributes_scrollbar_width         = new_value
+            case 'scrollbar_height':        self.attributes_scrollbar_height        = new_value
+            case 'scrollbar_alignment':     self.attributes_scrollbar_alignment     = new_value
+            case 'content_height_limit':    self.attributes_content_height_limit    = new_value
+            case 'padding':                 self.attributes_padding                 = new_value
+            case 'scroll_speed':            self.attributes_scroll_speed            = new_value
+            case 'frame_border_width':      self.attributes_frame_border_width      = new_value
+            case 'frame_border_color':      self.attributes_frame_border_color      = new_value
+            case 'frame_color':             self.attributes_frame_color             = new_value
+            case 'frame_corner_radius':     self.attributes_frame_corner_radius     = new_value
+            case 'scrollbar_color':         self.attributes_scrollbar_color         = new_value
+            case 'scrollbar_hover_color':   self.attributes_scrollbar_hover_color   = new_value
+            case 'scrollbar_pressed_color': self.attributes_scrollbar_pressed_color = new_value
+            case 'scrollbar_border_width':  self.attributes_scrollbar_border_width  = new_value
+            case 'scrollbar_border_color':  self.attributes_scrollbar_border_color  = new_value
+            case 'scrollbar_corner_radius': self.attributes_scrollbar_corner_radius = new_value
+            case 'scrollbar_state':         self.attributes_scrollbar_state         = new_value
+            case 'scrollbar_can_hover':     self.attributes_scrollbar_can_hover     = new_value
+            case 'x':                       self.place(new_value, self.info_y())
+            case 'y':                       self.place(self.info_x(), new_value)
+        self.reload()
 
     def reload(self):
         self._frame.configure(corner_radius=self.attributes_frame_corner_radius, border_width=self.attributes_frame_border_width, frame_color=self.attributes_frame_color, width=self.attributes_width, height=self.attributes_height)
@@ -133,30 +157,4 @@ class ScrollableFrame:
         if scrollbar_corner_radius is not None: self.attributes_scrollbar_corner_radius = scrollbar_corner_radius
         if scrollbar_state is not None:         self.attributes_scrollbar_state         = scrollbar_state
         if scrollbar_can_hover is not None:     self.attributes_scrollbar_can_hover     = scrollbar_can_hover
-        self.reload()
-
-    def config(self, attribute_name, new_value):
-        match attribute_name:
-            case 'width':                   self.attributes_width                    = width
-            case 'height':                  self.attributes_height                   = height
-            case 'scrollbar_width':         self.attributes_scrollbar_width          = scrollbar_width
-            case 'scrollbar_height':        self.attributes_scrollbar_height         = scrollbar_height
-            case 'scrollbar_alignment':     self.attributes_scrollbar_alignment      = scrollbar_alignment
-            case 'content_height_limit':    self.attributes_content_height_limit     = content_height_limit
-            case 'padding':                 self.attributes_padding                  = padding
-            case 'scroll_speed':            self.attributes_scroll_speed             = scroll_speed
-            case 'frame_border_width':      self.attributes_frame_border_width       = frame_border_width
-            case 'frame_border_color':      self.attributes_frame_border_color       = frame_border_color
-            case 'frame_color':             self.attributes_frame_color              = frame_color
-            case 'frame_corner_radius':     self.attributes_frame_corner_radius      = frame_corner_radius
-            case 'scrollbar_color':         self.attributes_scrollbar_color          = scrollbar_color
-            case 'scrollbar_hover_color':   self.attributes_scrollbar_hover_color    = scrollbar_hover_color
-            case 'scrollbar_pressed_color': self.attributes_scrollbar_pressed_color  = scrollbar_pressed_color
-            case 'scrollbar_border_width':  self.attributes_scrollbar_border_width   = scrollbar_border_width
-            case 'scrollbar_border_color':  self.attributes_scrollbar_border_color   = scrollbar_border_color
-            case 'scrollbar_corner_radius': self.attributes_scrollbar_corner_radius  = scrollbar_corner_radius
-            case 'scrollbar_state':         self.attributes_scrollbar_state          = scrollbar_state
-            case 'scrollbar_can_hover':     self.attributes_scrollbar_can_hover      = scrollbar_can_hover
-            case 'x':                       self.place(new_value, self.info_y())
-            case 'y':                       self.place(self.info_x(), new_value)
         self.reload()

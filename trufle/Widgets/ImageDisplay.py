@@ -2,22 +2,19 @@ from PyQt5.QtWidgets import QLabel
 from PyQt5.QtGui import QFont, QPixmap
 from PIL import Image, ImageQt
 
-def stateGetSize():pass
-
 class ImageDisplay:
     def __init__(self,
                 master,
                 image: Image,
-                width = stateGetSize,
-                height = stateGetSize,
+                width = 'auto',
+                height = 'auto',
                 x=None,y=None):
         self._image = QLabel('', master._getM() )  # Create an instance of QLabel
-
-        pixmap = QPixmap.fromImage(ImageQt.ImageQt(image))
+        pixmap = self._image_to_pixmap(image)
         self._image.setPixmap(pixmap)
 
-        if width == stateGetSize: width = pixmap.width()
-        if height == stateGetSize: height = pixmap.height()
+        if width == 'auto': width = pixmap.width()
+        if height == 'auto': height = pixmap.height()
 
         self.attributes_master = master
         self.attributes_image  = image
@@ -42,7 +39,10 @@ class ImageDisplay:
                   height = None):
 
             if width is not None:  self.attributes_width  = width
+            else: self.attributes_width = 'auto'
             if height is not None: self.attributes_height = height
+            else: self.attributes_width = 'auto'
+
             if image is not None:  self.attributes_image  = image
             self.reload()
 
@@ -65,11 +65,11 @@ class ImageDisplay:
     def info_y(self): return self._image.y()
 
     def reload(self):
-        pixmap = QPixmap.fromImage(ImageQt.ImageQt(self.attributes_image))
+        pixmap = self._image_to_pixmap(self.attributes_image)
         self._image.setPixmap(pixmap)
 
-        if self.attributes_width == stateGetSize: self.attributes_width = pixmap.width()
-        if self.attributes_height == stateGetSize: self.attributes_height = pixmap.height()
+        if self.attributes_width  == 'auto': self.attributes_width  = pixmap.width()
+        if self.attributes_height == 'auto': self.attributes_height = pixmap.height()
 
         self._image.setFixedSize(self.attributes_width, self.attributes_height)
 
@@ -86,3 +86,7 @@ class ImageDisplay:
         if leave_pressed is not None:  self._image.mouseReleaseEvent  = leave_pressed
         if pressed_motion is not None: self._image.mouseMoveEvent     = pressed_motion
         if scroll         is not None: self._image.wheelEvent         = scroll
+
+    def _image_to_pixmap(self, image):
+        qimage = ImageQt.ImageQt(image)
+        return QPixmap.fromImage(qimage)

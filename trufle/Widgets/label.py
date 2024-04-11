@@ -13,7 +13,8 @@ class Label:
                 text_color   ='palegreen',
                 outside_color='transparent',
                 font         ='Century Gothic',
-                font_size    =16):
+                font_size    =16,
+                _alignment = 'top left'):
         self.l = QLabel(text, master._getM() )  # Create an instance of QLabel
 
         # StyleSheet
@@ -24,7 +25,8 @@ class Label:
                 border: 0px solid transparent;
             }}
             """
-        self.l.setAlignment(Qt.AlignLeft | Qt.AlignTop)
+        qt_alignments = {'top left': Qt.AlignLeft | Qt.AlignTop, 'center':Qt.AlignCenter}
+        self.l.setAlignment(qt_alignments[_alignment])
 
         # params:
         self.l.setFixedSize(width, height)
@@ -113,3 +115,8 @@ class Label:
 
     def info_x(self): return self.l.x()
     def info_y(self): return self.l.y()
+
+    def hide(self):
+        self.l.hide()
+    def show(self):
+        self.l.show()
